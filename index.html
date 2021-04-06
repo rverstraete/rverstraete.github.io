@@ -26,8 +26,13 @@
 <html>
   <body>
 
-    <h1>The Best Restuarant in the DMV</h1>
-    <p>This restuarant is family owned and serves wonderful food. It specifically serves Burmese cuisine. Unfortunately it will be closing this year. So GO QUICKLY!! Here is a link to their menu: https://www.mandalayrestaurantcafe.com/menu</p>
+    <h1>The Top Four Restuarants in the DMV</h1>
+    <p>These are my top four picks for restuarants in the DC-Maryland-Virginia area. UMBC's campus is displayed on the map as a reference point for other students.</p>
+    <br>
+    <p>Number 1: Mandalay Restuarant in Silver Spring. It is family owned and serves Burmese cuisine. Sadly, it will be closing in the coming months so visit QUICK!! The menu can be found here: https://www.mandalayrestaurantcafe.com/menu</p>
+    <p>Number 2: Jyoti Indian Cuisine in Adams Morgan DC. As the name implies they serve Indian cuisine. You wouldn't notice it if you weren't looking, but it is a gem of the city and for vegetarians. The menu can be found here: https://www.jyotidc.com/menu/</p>
+    <p>Number 3: Moby Dick Sushi. A wonderful, yet small establishment hidden in Wheaton. But if you are looking for good sushi, it is the place to go! The menu can be found here: https://www.mbdsushi.com/</p>
+    <p>Number 4: Farmers & Distillers located just outside Chinatown DC. All and all wonderful spot for dinner or brunch. A little pricier, but for sure worth it. The menu can be found here: https://farmersanddistillers.com/menu/</p>
     <br>
     <div id="mapid"></div>
     <div id="latLon">39.031113,-77.104854</div>
@@ -44,14 +49,14 @@
     accessToken: ''
 }).addTo(mymap);
       
-      var circle = L.circle([38.99374,-77.02513], {
+      var man = L.circle([38.99374,-77.02513], {
         color: 'green',
         fillColor: '#f03',
         fillOpacity: 0.4,
         radius: 50
       }).addTo(mymap);
       
-      circle.bindPopup("Mandalay Restaurant & Cafe");
+      man.bindPopup("Mandalay Restaurant & Cafe");
       
       var poly = L.polygon([
               [39.090348, -77.201414],
@@ -65,6 +70,33 @@
       }).addTo(mymap);
       
       poly.bindPopup("UMBC - Shady Grove Campus, general boundaries");
+      
+      var jy = L.circle([38.92134,-77.04209], {
+        color: 'green',
+        fillColor: '#f03',
+        fillOpacity: 0.4,
+        radius: 50
+      }).addTo(mymap);
+      
+      jy.bindPopup("Jyoti Indian Cuisine");
+      
+      var sushi = L.circle([39.03915,-77.05177], {
+        color: 'green',
+        fillColor: '#f03',
+        fillOpacity: 0.4,
+        radius: 50
+      }).addTo(mymap);
+      
+      sushi.bindPopup("Moby Dick Sushi");
+      
+      var farm = L.circle([38.901530,-77.020144], {
+        color: 'green',
+        fillColor: '#f03',
+        fillOpacity: 0.4,
+        radius: 50
+      }).addTo(mymap);
+      
+      farm.bindPopup("Farmers & Distillers");
       
       function onMapHover(e) {
         var newLatLng = String(e.latlng).replace("LatLng(", "").replace(")", "")
