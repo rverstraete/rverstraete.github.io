@@ -30,13 +30,13 @@
     <p>This restuarant is family owned and serves wonderful food. It specifically serves Burmese cuisine. Unfortunately it will be closing this year. So GO QUICKLY!! Here is a link to their menu: https://www.mandalayrestaurantcafe.com/menu</p>
     <br>
     <div id="mapid"></div>
-    <div id="latLon">39.0941938,-77.2027823</div>
+    <div id="latLon">39.031113,-77.104854</div>
     
     <script>
-      var mymap = L.map('mapid').setView([39.0941938,-77.2027823], 13);
+      var mymap = L.map('mapid').setView([39.031113,-77.104854], 10);
       
       L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    attribution: 'Map tiles by <a target="_top" rel="noopener" href="http://stamen.com">Stamen Design</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>',
     maxZoom: 18,
     id: 'mapbox/streets-v11',
     tileSize: 512,
@@ -53,6 +53,18 @@
       
       circle.bindPopup("Mandalay Restaurant & Cafe");
       
+      var poly = L.polygon([
+              [39.090348, -77.201414],
+              [39.092980, -77.196779],
+              [39.094412, -77.198581],
+              [39.096044, -77.201500],
+              [39.093729, -77.202615]
+        ], {
+        color: 'blue',
+        fillOpacity: 0.4
+      }).addTo(mymap);
+      
+      poly.bindPopup("UMBC - Shady Grove Campus, general boundaries");
       
       function onMapHover(e) {
         var newLatLng = String(e.latlng).replace("LatLng(", "").replace(")", "")
