@@ -49,12 +49,7 @@
     accessToken: ''
 }).addTo(mymap);
       
-      var man = L.circle([38.99374,-77.02513], {
-        color: 'green',
-        fillColor: '#f03',
-        fillOpacity: 0.4,
-        radius: 50
-      }).addTo(mymap);
+      var man = L.marker([38.99374,-77.02513]).addTo(mymap);
       
       man.bindPopup("Mandalay Restaurant & Cafe");
       
@@ -71,30 +66,15 @@
       
       poly.bindPopup("UMBC - Shady Grove Campus, general boundaries");
       
-      var jy = L.circle([38.92134,-77.04209], {
-        color: 'green',
-        fillColor: '#f03',
-        fillOpacity: 0.4,
-        radius: 50
-      }).addTo(mymap);
+      var jy = L.marker([38.92134,-77.04209]).addTo(mymap);
       
       jy.bindPopup("Jyoti Indian Cuisine");
       
-      var sushi = L.circle([39.03915,-77.05177], {
-        color: 'green',
-        fillColor: '#f03',
-        fillOpacity: 0.4,
-        radius: 50
-      }).addTo(mymap);
+      var sushi = L.circle([39.03915,-77.05177]).addTo(mymap);
       
       sushi.bindPopup("Moby Dick Sushi");
       
-      var farm = L.circle([38.901530,-77.020144], {
-        color: 'green',
-        fillColor: '#f03',
-        fillOpacity: 0.4,
-        radius: 50
-      }).addTo(mymap);
+      var farm = L.marker([38.901530,-77.020144]).addTo(mymap);
       
       farm.bindPopup("Farmers & Distillers");
       
