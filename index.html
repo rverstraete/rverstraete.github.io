@@ -26,8 +26,8 @@
 <html>
   <body>
 
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
+    <h1>The Best Restuarant in the DMV</h1>
+    <p>This restuarant is family owned and serves wonderful food. It specifically serves Burmese cuisine. Unfortunately it will be closing this year. So GO QUICKLY!! Here is a link to their menu: https://www.mandalayrestaurantcafe.com/menu</p>
     <br>
     <div id="mapid"></div>
     <div id="latLon">39.0941938,-77.2027823</div>
@@ -35,7 +35,7 @@
     <script>
       var mymap = L.map('mapid').setView([39.0941938,-77.2027823], 13);
       
-      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={pk.eyJ1IjoicnZlcnN0cmFldGUiLCJhIjoiY2tuNWFjajU2MDJhbjJ1bTFhZmYyc3F1cSJ9.0oYc0Sn6xSYe8cNPSS1sgA}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox/streets-v11',
@@ -44,14 +44,14 @@
     accessToken: ''
 }).addTo(mymap);
       
-      var circle = L.circle([39.0941938,-77.2027823], {
-        color: 'blue',
+      var circle = L.circle([38.99374,-77.02513], {
+        color: 'green',
         fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
+        fillOpacity: 0,
+        radius: 50
       }).addTo(mymap);
       
-      circle.bindPopup("I am a circle.");
+      circle.bindPopup("Mandalay Restaurant & Cafe");
       
       
       function onMapHover(e) {
