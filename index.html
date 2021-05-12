@@ -10,6 +10,26 @@ import notebook from "https://api.observablehq.com/@rverstraete/project-take-2.j
 
 // Load the notebook, observing its cells with a default Inspector
 // that simply renders the value of each cell into the provided DOM node.
-new Runtime().module(notebook, Inspector.into(document.body));
+<div id="observablehq-container-cfa760fc"></div>
+<div id="observablehq-viewof-search-cfa760fc"></div>
+<div id="observablehq-viewof-rows-cfa760fc"></div>
+<div id="observablehq-chart-cfa760fc"></div>
+<div id="observablehq-chart2-cfa760fc"></div>
+<div id="observablehq-chart3-cfa760fc"></div>
+<p>Credit: <a href="https://observablehq.com/@rverstraete/project-take-2">Project - Tracking Population Movement within the US by rverstraete</a></p>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@rverstraete/project-take-2.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "container") return new Inspector(document.querySelector("#observablehq-container-cfa760fc"));
+  if (name === "viewof search") return new Inspector(document.querySelector("#observablehq-viewof-search-cfa760fc"));
+  if (name === "viewof rows") return new Inspector(document.querySelector("#observablehq-viewof-rows-cfa760fc"));
+  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-cfa760fc"));
+  if (name === "chart2") return new Inspector(document.querySelector("#observablehq-chart2-cfa760fc"));
+  if (name === "chart3") return new Inspector(document.querySelector("#observablehq-chart3-cfa760fc"));
+  return ["map","wood","centroids","rows"].includes(name);
+});
+</script>
 
 </script>
