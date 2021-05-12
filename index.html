@@ -1,91 +1,15 @@
 <!DOCTYPE html>
-<head>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-  <style>
-    #mapid { 
-      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-      box-sizing: border-box;         /* Opera/IE 8+ */
+<body>
+<script type="module">
 
-    /* Since this element now uses border-box sizing, the 10px of horizontal
-       padding will be drawn inside the 80% width */
-      width: 80%;
-      height: 500px;
-      padding: 0 10px;
-      
-      
-    }
-  </style>
-</head>
-<html>
-  <body>
+// Load the Observable runtime and inspector.
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
-    <h1>The Top Four Restuarants in the DMV</h1>
-    <p>These are my top four picks for restuarants in the DC-Maryland-Virginia area. UMBC's campus is displayed on the map as a reference point for other students.</p>
-    <br>
-    <p>Number 1: Mandalay Restuarant in Silver Spring. It is family owned and serves Burmese cuisine. Sadly, it will be closing in the coming months so visit QUICK!! The menu can be found here: https://www.mandalayrestaurantcafe.com/menu</p>
-    <p>Number 2: Jyoti Indian Cuisine in Adams Morgan DC. As the name implies they serve Indian cuisine. You wouldn't notice it if you weren't looking, but it is a gem of the city and for vegetarians. The menu can be found here: https://www.jyotidc.com/menu/</p>
-    <p>Number 3: Moby Dick Sushi. A wonderful, yet small establishment hidden in Wheaton. But if you are looking for good sushi, it is the place to go! The menu can be found here: https://www.mbdsushi.com/</p>
-    <p>Number 4: Farmers & Distillers located just outside Chinatown DC. All and all wonderful spot for dinner or brunch. A little pricier, but for sure worth it. The menu can be found here: https://farmersanddistillers.com/menu/</p>
-    <br>
-    <div id="mapid"></div>
-    <div id="latLon">39.031113,-77.104854</div>
-    
-    <script>
-      var mymap = L.map('mapid').setView([39.031113,-77.104854], 13);
-      
-      L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
-    attribution: 'Map tiles by <a target="_top" rel="noopener" href="http://stamen.com">Stamen Design</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: ''
-}).addTo(mymap);
-      
-      var man = L.marker([38.99374,-77.02513]).addTo(mymap);
-      
-      man.bindPopup("Mandalay Restaurant & Cafe");
-      
-      var poly = L.polygon([
-              [39.090348, -77.201414],
-              [39.092980, -77.196779],
-              [39.094412, -77.198581],
-              [39.096044, -77.201500],
-              [39.093729, -77.202615]
-        ], {
-        color: 'blue',
-        fillOpacity: 0.4
-      }).addTo(mymap);
-      
-      poly.bindPopup("UMBC - Shady Grove Campus, general boundaries");
-      
-      var jy = L.marker([38.92134,-77.04209]).addTo(mymap);
-      
-      jy.bindPopup("Jyoti Indian Cuisine");
-      
-      var sushi = L.marker([39.03915,-77.05177]).addTo(mymap);
-      
-      sushi.bindPopup("Moby Dick Sushi");
-      
-      var farm = L.marker([38.901530,-77.020144]).addTo(mymap);
-      
-      farm.bindPopup("Farmers & Distillers");
-      
-      function onMapHover(e) {
-        var newLatLng = String(e.latlng).replace("LatLng(", "").replace(")", "")
-        document.getElementById("latLon").innerHTML = newLatLng;
-      }
+// Your notebook, compiled as an ES module.
+import notebook from "https://api.observablehq.com/@rverstraete/project-take-2.js?v=3";
 
-      mymap.on('mousemove', onMapHover);
-     
-      
-    </script>
-  </body>
-</html>
+// Load the notebook, observing its cells with a default Inspector
+// that simply renders the value of each cell into the provided DOM node.
+new Runtime().module(notebook, Inspector.into(document.body));
+
+</script>
